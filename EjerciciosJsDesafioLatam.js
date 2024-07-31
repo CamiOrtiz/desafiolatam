@@ -762,9 +762,53 @@ function filtrarDatosErrados(datos){
 
 //Crea una función llamada seleccionarUltimos que reciba un arreglo y un número y retorne un nuevo arreglo con los últimos elementos del arreglo original.//
 
-function seleccionarUltimos(arreglo, num){
-    numNuevo= [];
-    for(let i=0; i < arreglo.length; i++){
-        
+//OPCIÓN 1 DE RESULTADO CORRECTO:
+function seleccionarUltimos(arreglo, num) {
+    if (num > arreglo.length) {
+        return arreglo.slice();    }
+
+    return arreglo.slice(arreglo.length - num);
+};
+
+
+//OPCIÓN 2 DE RESULTADO CORRECTO:
+
+function seleccionarUltimos(arreglo, num) {
+    let numNuevo = [];    
+    if (num > arreglo.length) {
+        num = arreglo.length; 
+    }   
+    for (let i = arreglo.length - num; i < arreglo.length; i++) {
+        numNuevo.push(arreglo[i]);
     }
+    
+    return numNuevo;
 }
+
+//Crea una función llamada seleccionarUltimosNumeros que reciba un arreglo y un número y retorne un nuevo arreglo con los últimos N elementos del arreglo original. Intenta hacerlo de forma eficiente.//
+
+function seleccionarUltimosNumeros(arreglo, num){
+    resultado=[]
+    for(let i= arreglo.length - num; i < arreglo.length; i++){
+        resultado.push(arreglo[i])
+    }
+    return resultado
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
