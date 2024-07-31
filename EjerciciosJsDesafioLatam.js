@@ -1,0 +1,770 @@
+//EJERCICIO 4.4 //
+numero = 7;
+function adivinaNumero (numero){
+    if (numero == 7){
+        return "Adivinaste el número secreto";
+    } else if (numero == 6) {
+        return "Casi, pero no es el número secreto";
+    } else {
+        return "Estás equivocado, el número secreto no es " + numero;
+    }
+};
+
+/* Escribe tu código aquí */
+
+
+/* Escribe tu código aquí */
+function descuentos (cantidad, hora){
+    if (hora == "Mañana") {
+        if (cantidad >= 10){
+            return ("Descuento del 25% en la compra matutina");        
+        } else if (cantidad >= 5 && cantidad < 10) {
+            return ("Descuento del 15% en la compra matutina");
+                     
+        } else {
+            return ("Sin descuento en la compra matutina")
+        }
+    } else if (hora == "Noche") {
+        if (cantidad >= 10){
+            return ("Descuento del 15% en la compra nocturna");        
+        } else if (cantidad >= 5 && cantidad < 10) {
+            return ("Descuento del 5% en la compra nocturna");
+                         
+        } else if (cantidad >= 3 && cantidad < 5) {
+            return ("Descuento del 3% en la compra nocturna");
+
+        } else {
+            return ("Sin descuento en la compra nocturna")
+            
+        }
+    } else {
+        return ("Descuento no reconocido")
+    };
+};
+
+
+clima = "soleado"; 
+horaDelDia = "tarde";
+
+if (clima == "soleado") {
+    if (horaDelDia == "mañana") {
+        console.log("Es un buen momento para salir a correr.");
+    } else if (horaDelDia == "tarde") {
+        console.log("Perfecto para visitar un parque.")
+    } else {
+        console.log("Hora del día no reconocida.");
+    }
+} else if (clima == "lluvioso") {
+    if (horaDelDia == "mañana") {
+        console.log("Buen momento para leer un libro.");
+    } else {
+        console.log("Hora del día no reconocida.");
+    }
+} else {
+    console.log("Clima no reconocido.");
+}
+
+
+function descuentos(cantidad, hora){
+    if(hora == "Mañana"){
+        if(cantidad >= 10){
+            return "Descuento del 25% en la compra matutina"
+        }else if(cantidad >= 5 && cantidad < 10){
+            return "Descuento del 15% en la compra matutina"
+        }else{
+            return "Sin descuento en la compra matutina"
+        }
+    } else if(hora == "Noche"){
+        if(cantidad >= 10){
+          return "Descuento del 15% en la compra nocturna"
+        }else if(cantidad >= 5 && cantidad < 10){
+          return "Descuento del 5% en la compra nocturna"
+        }else if(cantidad >= 3 && cantidad < 5){
+          return "Descuento del 3% en la compra nocturna"
+        }else{
+          return "Sin descuento en la compra nocturna"
+        }
+    }
+};
+
+function fizzBuzz(numero){
+    if (numero % 3 == 0 && numero % 5 == 0){
+        return "FizzBuzz"
+    } else if (numero % 5 == 0){
+        return "Fizz"
+    }else if (numero % 5 == 0){
+        return "Buzz"
+    }else{
+        return numero;
+    }};
+
+    codigo = "1234"
+/* Escribe tu código aquí */
+
+    mensaje = codigo == "1234" ? "Código Incorrecto" : "Código correcto"
+    console.log(mensaje)
+
+
+    edad = 18
+    mensaje = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad"
+
+
+    ///
+
+    numero = 2
+    function atencionAlCliente(numero){
+        switch (numero){
+            case 1:
+                console.log ("Contactar a un vendedor");
+                break;
+            case 2:
+                console.log ("Esperar a ser atentido");
+                break;
+            case 3:
+                console.log ("Contactar a soporte");
+                break;
+            default:
+               console.log ("Opción inválida");            
+        }};
+
+
+        function mayorQue(a, b){
+            if (a > b){
+                return "El primer número es mayor que el segundo"
+            } else if (b > a){
+                return "El segundo número es mayor que el primero"
+            } else {
+                return "Ambos números son iguales"
+            }  
+        };
+        
+//EJERCICIO: Crea una función llamada mix que tome 2 parámetros, palabra1 y palabra2, y que retorne una mezcla de ambas palabras en donde la mitad de la primera palabra se concatena con la segunda mitad de la segunda palabra. Para simplificar, asume que ambas palabras tienen una longitud par. El resultado de la mezcla debe ser una sola palabra en minúsculas.//
+
+        function mix(palabra1,palabra2){
+            const mitad1 = (palabra1.length / 2);
+            const mitad2 = (palabra2.length / 2);
+        
+            const primeraMitad = palabra1.substring(0,mitad1);
+            const segundaMitad = palabra2.substring(mitad2);
+        
+            return (primeraMitad + segundaMitad).toLowerCase();
+        };
+
+//EJERCICIO: Crea una función llamada primerosCaracteresMayusculas que reciba un párametro texto y devuelva los primeros 3 caracteres del texto en mayúsculas. Si el texto tiene menos de 3 caracteres, debe retornar el mensaje error//
+
+function primerosCaracteresMayusculas(texto){
+    if (texto.length < 3){
+        return "error"
+    }else{
+        return texto.substring(0, 3).toUpperCase();
+    }  
+};
+
+function ultimoYPrimero(arreglo = []){
+    return (arreglo[arreglo.length -1] + [arreglo.length, [0]])
+};
+
+
+function modificarPorElMayor(arreglo = [ 3, 6], numero1, numero2){
+    arreglo[0] = numero2
+    return arreglo;
+    
+};
+
+function borrarAlFinal( arreglo = []){
+    arreglo.splice(4, 1)
+};
+
+
+function rotarALaIzquierda(arreglo) {
+    arreglo.push(arreglo.splice(0, 1)[0]);
+    return arreglo;
+};
+
+function izqDerecha(arreglo, num){
+    if(num < 100){
+        arreglo.push(5)
+    }else{
+        arreglo.push(arreglo.splice(0, 1)[0])
+    }
+    return arreglo;
+
+};
+
+
+
+
+//EJERCICIO: Crea una función llamada izqDerecha que reciba un parámetro llamado arreglo y otro llamado num.Si num es menor que 100, el valor se ingresará por la derecha del arreglo, como normalmente se ingresan todos los valores.Si el valor es mayor o igual a 100, el valor se ingresará por la izquierda del arreglo.La función debe retornar el arreglo modificado.//
+
+function izqDerecha(arreglo, num) {
+    if (num < 100) {
+        arreglo.push(num);
+    } else if (num >= 100) {
+        arreglo.splice(0, 0, num)
+    }
+    return arreglo;
+};
+
+//crea una función llamada rotarALaDerecha que reciba un arreglo y retorne el arreglo rotado a la derecha.//
+function rotarALaDerecha(arreglo){
+    nuevoArreglo = arreglo[arreglo.length -1];
+    arreglo.splice(arreglo.length -1,1);
+    arreglo.unshift(nuevoArreglo);
+    
+    return arreglo;
+};
+
+
+
+
+contador = 1
+function contarHasta(numero){
+    while (contador <= numero){
+        console.log(contador)
+        contador = contador ++
+    }    
+};
+
+function sumarHasta(numero){
+    contador = 1
+    suma = 0
+    while(contador <= numero){
+        suma = suma + contador
+        contador = contador + 1
+        return console.log(suma)
+    }
+};
+
+function sumarDesdeHasta(numero1, numero2) {
+    let suma = 0;
+    while (numero1 <= numero2) {
+        suma += numero1; 
+        numero1++; 
+    }
+    return suma; 
+};
+
+
+//Crea una función llamada productoria que reciba un número como parámetro y retorne la productoria de los números del 1 al número ingresado//
+function productoria(numero) {
+    let contador = 1;
+    let resultado = 1; 
+    while (contador <= numero) {
+        resultado *= contador; 
+        contador++; 
+    }
+    return resultado; 
+}
+
+
+
+nombres = ["Juan", "Pedro", "Ana", "Luis"]
+for (indice = 0; indice < nombres.length; indice = indice + 1) {
+  console.log(nombres[indice])
+}
+
+
+function mostrar(arreglo=[]){
+    for(i=0; i < arreglo.length; i++){
+        if (arreglo.length <= 3){
+            return arreglo
+        }
+    }
+};
+
+//Crea una función llamada mostrarDatosAlReves que reciba un arreglo y que muestre en consola los datos del arreglo en orden inverso.//
+function mostrarDatosAlReves(arreglo=[]){
+    for(i= arreglo.length -1; i >= 0; i--){
+        console.log(arreglo[i])
+    }
+};
+
+function mostrarDatoEIndice(datos) {
+    for (i = 0; i < datos.length; i = i + 1) { 
+      console.log(datos[i] + " en la posición " + i) 
+    }
+  }
+
+///Crea una función llamada mostrarPares que reciba un arreglo y muestre los números pares del arreglo recibido.//
+  function mostrarPares(arreglo=[]){
+    for(i= 0; i < arreglo.length; i ++){
+        if (arreglo[i] % 2 == 0){
+            console.log(arreglo[i])
+
+        }
+    } 
+};
+
+//Crea una función llamada mostrarLasPalabrasQueEmpiezanConA que reciba un arreglo de palabras y muestre las palabras que empiezan con la letra "a".//
+function mostrarLasPalabrasQueEmpiezanConA(arreglo=[]){
+    for(i=0; i < arreglo.length; i ++){
+        if (arreglo[i].startsWith("a") ){
+            console.log (arreglo[i])
+        }
+    }
+
+};
+
+//Crea una función llamada palabras que reciba un arreglo de palabras y una letra. El programa debe mostrar en consola las palabras que empiecen con la letra recibida.//
+
+function palabras(arreglo=[], l){
+    for(i=0; i < arreglo.length; i++){
+        if(arreglo[i].startsWith(l)){
+            console.log(arreglo[i])
+        }
+
+    }
+
+};
+
+//Crea una función llamada mostrarCada2 que reciba un arreglo y que muestre una de cada dos palabras.//
+function mostrarCada2(arreglo=[]){
+    for(i=0; i< arreglo.length; i = i + 2){
+        console.log(arreglo[i])
+    }
+
+};
+
+//Crea la función paresQueEmpiezenconA que reciba un arreglo de palabras y muestre las palabras que empiezan con la letra "a" siempre y cuando tengan un índice par en la posición del arreglo.Para motivos del ejercicio el cero es considerado un número par.//
+function paresQueEmpiezenconA(arreglo=[]){
+    for(i=0; i < arreglo.length; i ++){
+        if (i % 2 == 0 && arreglo[i].startsWith("a")){
+            console.log(arreglo[i])
+        }
+    }
+};
+
+
+//Crea una función llamada sumarDatos que reciba un arreglo y retorne la suma de los elementos del arreglo recibido.//
+function sumarDatos(arreglo=[]){
+    let suma=0;
+    for(i= 0; i < arreglo.length; i++){
+        suma += arreglo[i]
+    }
+    return(suma)
+};
+
+//Crea una función llamada promediarDatos que reciba un arreglo y retorne el promedio de los elementos del arreglo recibido.//
+suma=0
+function promediarDatos(arreglo=[]){
+    for(i=0; i < arreglo.length; i++){
+        suma += arreglo[i]
+    }
+    return(suma / arreglo.length)
+};
+
+//Crea una función llamada contarPares que reciba un arreglo y retorne la cantidad de números pares que contiene el arreglo recibido.//
+function contarPares(arreglo=[]){
+    pares = 0
+    for(i=0; i < arreglo.length; i ++){
+        if ( arreglo[i] % 2 == 0){
+            pares++;            
+        }
+    }
+    return pares;
+};
+
+
+//Crea una función llamada contarImpares que reciba un arreglo y retorne la cantidad de números impares que contiene el arreglo recibido.//
+
+function contarImpares(arreglo=[]){
+    impares = 0
+    for(i=0; i < arreglo.length; i ++){
+        if ( arreglo[i] % 2 !== 0){
+            impares++;            
+        }
+    }
+    return impares;
+};
+
+
+//Dado un arreglo de números, crea una función llamada sumarPares que reciba un arreglo y retorne la suma de los números pares que contiene el arreglo recibido.//
+function sumarPares(arreglo=[]){
+    suma = 0
+    for(i=0; i < arreglo.length; i ++){
+        if (arreglo[i] % 2 == 0){
+            suma += arreglo[i]            
+        }
+    }
+    return suma;
+};
+
+//Crea una función llamada juntarPalabras que reciba un arreglo de palabras y retorne un string con todas las palabras concatenadas con un espacio entre cada palabra. Al final del string no debe haber un espacio.//
+function juntarPalabras(arreglo=[]){
+    palabras= ""
+    for(i = 0; i < arreglo.length; i ++){
+        palabras = palabras + " " + arreglo[i];
+        
+    }
+    return palabras;    
+};
+
+//En el siguiente arreglo hay un mensaje escondido utilizando solo la primera letra de cada elemento del arreglo. Encuentra el mensaje escondido. mesajeOculto(["Sol", "Elefante", "Casa", "Rana", "Estrella", "Tigre", "Oso"]) // "SECRETO" ---> Tip: Recuerda la función substring para obtener una subcadena de un string. Tip 2: De la misma forma que sumas números, puedes concatenar strings. Tip 3: Necesitas inicializar un string vacío para ir concatenando las letras.Crea una función llamada mensajeOculto que reciba un arreglo y retorne un texto con el mensaje escondido en el arreglo utilizando solo la primera letra de cada elemento del arreglo// 
+
+function mensajeOculto(arreglo=[]){
+    mensaje= ""
+    for(i=0; i < arreglo.length; i++){
+        mensaje = mensaje + arreglo[i].substring(0,1)
+    }
+    return mensaje;
+    
+};
+//Crea una función llamada mensajeOculto que reciba un arreglo y retorne un texto con el mensaje escondido en el arreglo utilizando solo la primera letra de cada elemento del arreglo.
+function mensajeOculto(arreglo=[]){
+    mensaje= ""
+    for(i=0; i < arreglo.length; i++){        
+        if(i % 2== 0){  
+            mensaje = mensaje + arreglo[i].substring(0,1)        
+
+        }        
+    }
+    return mensaje    
+    
+};
+
+//Crea una función llamada sumarDatos que reciba un arreglo y muestre en consola la suma de los elementos del arreglo recibido. Si hay algún elemento que no sea un número, debes transformarlo antes de sumarlo.//
+
+function sumarDatos(arreglo=[]){
+    suma=0;
+    for(i=0; i < arreglo.length; i++){
+        valor = parseFloat(arreglo[i])
+        suma += valor;
+    } 
+    console.log(suma)
+};
+//parseFloat(arreglo[i]) intenta convertir el elemento del arreglo a un número. Si la conversión falla y retorna NaN, el operador || se asegura de que valor sea 0.//
+
+//Crea una función llamada promediarDatos que reciba un arreglo y muestre en consola el promedio de los elementos del arreglo recibido. Dentro del arreglo pueden haber números y cadenas de texto que representen números.//
+
+function promediarDatos(arreglo=[]){
+    let suma=0;
+    for(i=0; i < arreglo.length; i++){
+        let valor = parseFloat(arreglo[i])
+        suma += valor; 
+        
+    }
+    console.log(suma / arreglo.length)
+};
+
+
+//Se necesita crear un sistema de descuentos según la cantidad de productos comprados y la hora del día.Crea una función llamada descuentos que dependa de los parámetros cantidad y hora. La función debe retornar el descuento, que corresponderá al mensaje entregado para cada caso. Escribe un conjunto de "if" anidados para determinar la categoría de descuento basada en la cantidad de productos comprados y la hora del día: "Mañana" y cantidad mayor o igual a 10: Descuento del 25% en la compra matutina. "Mañana" y cantidad mayor o igual a 5 pero menor que 10: Descuento del 15% en la compra matutina. "Mañana" y cantidad menor que 3: Sin descuento en la compra matutina."Noche" y cantidad mayor o igual a 10: Descuento del 15% en la compra nocturna. "Noche" y cantidad mayor o igual a 5 pero menor que 10: Descuento del 5% en la compra nocturna. "Noche" y cantidad mayor o igual a 3 pero menor que 5: Descuento del 3% en la compra nocturna. "Noche" y cantidad menor que 3: Sin descuento en la compra nocturna. No muestres los mensajes con console.log, solo retorna el mensaje desde la función. Ten cuidado con las mayúsculas y minúsculas de los mensajes y la ortografía. Copia los textos de cada tipo de descuento tal como se muestran en el enunciado para evitar errores.
+
+
+function descuentos(cantidad, hora){
+    if (hora== "Mañana") {
+        if (cantidad >= 10) {
+            return("Descuento del 25% en la compra matutina.");
+        } else if (cantidad >= 5 && cantidad < 10) {
+            return ("Descuento del 15% en la compra matutina.")
+        } else {
+            return("Sin descuento en la compra matutina.");
+        }
+    } else if (hora == "Noche") {
+        if (cantidad >= 10) {
+            return("Descuento del 15% en la compra nocturna.");
+        } else if (cantidad >= 5) {
+            return("Descuento del 5% en la compra nocturna.");
+        } else if (cantidad >=3 && cantidad <= 5){
+            return("Descuento del 3% en la compra nocturna.")
+            
+        } else {
+            return("Sin descuento en la compra nocturna.");
+        }
+    } else {
+        console.log("Sin descuento ");
+    }
+
+};
+
+function revisarAntesDeSalir(llaves, celular){
+    if(llaves == true && celular == true){
+        return("Todo listo, puedes salir de casa")
+    }else if(llaves == true && celular == false){
+        return("Te falta el celular")
+    }else if(llaves == false && celular == true){
+        return("Te falta las llaves")
+    }else{
+        return("No hay nada")
+    }
+        
+};
+
+
+function juntarArreglos(arreglo1=[], arreglo2=[]){
+    let arreglos1 = arreglo1.slice(1);
+    let arreglos2 = arreglo2.slice(1);
+    
+    let arreglo3 = arreglos1.concat(arreglos2);
+    return (arreglo3);
+};
+
+//Crea una función que reciba 3 valores arr1, valor y arr2, donde arr1 y arr2 serán arreglos y valor un número, la función debe retornar un nuevo arreglo juntando los elementos de arr1, el valor y los elementos de arr2.//
+
+juntarElementos([1, 2, 3], 4, [5, 6, 7]) // [1, 2, 3, 4, 5, 6, 7]
+
+function juntarElementos2(arr1, valor, arr2){
+    let arr3 = arr1.concat(arr2);
+    return arr3.push(valor)
+};
+
+
+function juntarElementos(arr1, valor, arr2) {        
+    let arr3 = arr1.concat(arr2);
+    
+    arr3.push(valor);
+    
+    
+    return arr3;
+};
+
+
+//Crea una función que reciba 3 valores arr1, valor y arr2, donde arr1 y arr2 serán arreglos y valor un número, la función debe retornar un nuevo arreglo juntando los elementos de arr1, el valor y los elementos de arr2.//
+function juntarElementos(arr1, valor, arr2) {       
+    let arr3 = arr1.concat(valor, arr2);         
+    
+    return(arr3);
+};
+
+//Crea una función llamada sumarDatos que reciba un string, lo convierta en un arreglo y luego sume los elementos del arreglo. La función debe mostrar en consola la suma de los elementos.//
+
+function sumarDatos(texto = "palabras separadas"){
+    suma = 0
+    arreglo = texto.split(",");
+
+    for( i = 0; i < arreglo.length; i++){
+        num = parseFloat(arreglo[i]) || 0;
+        suma += num;       
+
+    }
+    console.log(suma);
+};
+
+//Crea la función contadorDeNaN que reciba un string como parámetro. La función debe convertir el string recibido en un arreglo y luego, contar cuántos elementos del arreglo son NaN. La función debe mostrar en consola el número de elementos NaN.//
+
+function contadorDeNaN(palabra){
+    arreglo = palabra.split(",");
+    contador = 0;
+    for (i = 0; i < arreglo.length; i++){
+        num = Number(arreglo[i]);
+        if (isNaN(num)) {
+            contador++;
+
+    }
+}    
+    console.log(contador)
+
+};
+
+
+//Crea una función llamada retornarPrimerNumero que reciba un arreglo y muestre en consola el primer elemento que sea un número. El número puede venir en formato de texto o en formato de número.//
+
+function retornarPrimerNumero(arreglo=[]){
+    for(i=0; i < arreglo.length; i++){
+        if(!isNaN(arreglo[i])){
+            console.log(arreglo[i]);break
+        }        
+    }
+
+    };
+
+
+//Se tienen datos guardados en un arreglo que tienen el siguiente formato:["25 años", "30 años", "40 años", "50 años", "60 años", "70 años", "80 años", "90 años", "100 años"] Todos los datos están en el formato de "n años". Se pide crear una función llamada sumarAños que reciba un arreglo de strings y que muestre en consola la suma de todos los años en el arreglo.//
+
+function sumarAños(arreglo =[" "]){
+    suma= 0;
+    for( i = 0; i < arreglo.length; i++){
+        num = parseInt(arreglo[i]) || 0;
+        suma += num;       
+
+    }
+    console.log(suma)
+};
+
+//Se te ha proporcionado un arreglo con los pesos de varios paquetes en kilogramos, algunos de los cuales incluyen valores decimales. El costo por cada kilogramo entero es de $1.00. Si pesa menos de un kilogramo, el costo es de $0.Crea una función llamada calcularCostoTotal que reciba un arreglo de pesos en kilogramos y muestre en consola el costo total de todos los paquetes.//
+
+function calcularCostoTotal(pesos = []){
+    suma = 0;
+    for(i = 0; i < pesos.length; i++){
+        num= parseInt(pesos[i]) || 0;
+        suma += num
+
+    }
+    console.log(suma)
+
+};
+
+//Los expertos del negocio se han dado cuenta que las personas aprovechan que los paquetes de menos de 1 kg son gratis para enviar los paquetes más pesados en partes. Por esta razón, han decidido cambiar la forma de cobrar: Por un paquete de menos de 1kg se cobrará $1.00.Por uno de 1kg o más (hasta menos de 2 kg) se cobrará $2.00. Por uno de 2kg o más (hasta menos de 3kg) se cobrará $3.00.Por uno de 3kg o más (hasta menos de 4kg) se cobrará $4.00.Y así se debe repetir este patrón sucesivamente.Crea una función llamada calcularCostoTotal que reciba un arreglo de pesos en kilogramos y muestre en consola el costo total de todos los paquetes.
+
+function calcularCostoTotal(pesos=[]){
+    total = 0;
+    for(i = 0; i < pesos.length; i++){
+    // Elimina "kg" y convierte la parte numérica a un número de punto flotante:
+        num= parseFloat(pesos[i].replace("kg", "").trim());
+         // Redondea hacia abajo a un entero:
+        pesoTotal = Math.floor(num);
+        // Calcula el costo basado en el peso entero
+        costo = pesoTotal + 1;
+        total += costo;
+    }
+
+    console.log(total)
+
+};
+
+//Explicaciones importantes: Usamos replace para eliminar "kg" y trim para eliminar cualquier espacio en blanco adicional. Luego, parseFloat convierte la cadena resultante en un número de punto flotante. Utilizamos Math.floor para redondear el número hacia abajo a un entero.
+
+//Para simplificar la estructura de precios y hacerla más intuitiva para los clientes, los expertos del negocio han decidido que el costo de envío de los paquetes sea exactamente proporcional al peso registrado de cada paquete, incluyendo decimales.Nueva política de precios:El costo de envío será de $1.00 por cada kilogramo del peso del paquete, contando también las fracciones de kilogramo. Esto significa que el costo se calculará utilizando el peso exacto, sin redondear.Instrucciones:Crea una función llamada calcularCostoEnvio que acepte un arreglo de pesos de paquetes en kilogramos, y muestre en consola el costo total de envío de todos los paquetes.//
+
+
+function calcularCostoEnvio(precio=[]){
+    total = 0;
+    for(i=0; i< precio.length; i++){
+        num= parseFloat(precio[i])
+        total +=num;
+    }
+    console.log(total)
+};
+
+//Crea una función llamada contarVerdaderos que reciba un arreglo con diversos datos y cuente cuántos de esos datos son verdaderos truthy.//
+
+function contarVerdaderos(datos=[]){
+    conteo = 0;
+    for(i=0; i< datos.length; i++){
+        if(datos[i]){ 
+            conteo ++;                   
+        }         
+    }
+    console.log(conteo) 
+};
+
+//Se tiene un arreglo con los notas de algunos estudiantes. Crea una función llamada agregarPunto que reciba un arreglo de notas y que retorne el arreglo original modificado, agregando 1 punto a cada nota.//
+
+function agregarPunto(notas=[]){
+    let punto = 1;
+    for(let i=0; i < notas.length; i ++){
+        notas[i] = notas[i] + punto;
+    }
+    return(notas);
+};
+
+//Se tiene un arreglo con los pesos de varios paquetes, en kilogramos. Crea la función transformarCostos que retorne el arreglo original modificado, en el cual se registren los precios de cada paquete.La función debe recibir el parámetro pesos con arreglo de pesos y el parámetro costoPorKg. El precio de cada paquete se calcula multiplicando el peso por el costo por kilogramo.//
+
+function transformarCostos(pesos=[], costoPorKg){     
+    nuevosP=[];   
+    for(let i= 0; i < pesos.length; i++){
+        nuevosP.push(parseFloat(pesos[i]) * costoPorKg);
+    }
+    return(nuevosP);
+
+};
+
+//Se tiene un arreglo con nombres de personas en minúsculas.Crea una función llamada capitalizarNombres que modifique el arreglo original para que los nombres empiecen con mayúscula.Retorna el arreglo.//
+
+function capitalizarNombres(nombres){
+    for(let i = 0; i < nombres.length; i++){
+        nombres[i]= nombres[i].charAt(0).toUpperCase() + nombres[i].slice(1);
+    }
+    return nombres
+
+};
+
+//Crea una función llamada transformar que reciba un arreglo de números y realice las siguientes transformaciones sobre este arreglo de nombres: nombres = [" ana", "luis ", "  jose", "rosa", "julio "]. 1.Eliminar los espacios en blanco al principio y al final de cada nombre. 2.Capitalizar la primera letra de cada nombre. 3.Agregar un punto al final de cada nombre. 4.La función debe devolver el arreglo modificado.//
+
+function transformar(nombres){
+    for (let i=0; i < nombres.length; i++){     
+        nombres[i] = nombres[i].trim().charAt(0).toUpperCase() + nombres[i].trim().slice(1) + '.';
+    }
+    return nombres
+}; 
+
+
+//Crea una función llamada transformar que reciba un arreglo de números y realice las siguientes transformaciones: 1.Multiplicar por 2 cada número. 2.Restarle 1 a cada número. 3.Retornar el arreglo modificado
+
+function transformar(numeros){
+    for(let i = 0; i < numeros.length; i++){
+        numeros[i] = numeros[i] * 2 - 1        
+    }
+    return numeros
+};
+
+
+//Se tiene un arreglo llamado ranking con los nombres de los alumnos que participaron en una competencia: ranking = ["Camila", "Nahuel", "Lucas", "Nico", "Agustina", "Micaela", "Ezequiel", "Mariano", "Florencia", "Gonzalo"]. Debes crear una función llamada rankear que reciba el arreglo ranking y lo transforme agregando la posición del alumno en la competencia. La función debe devolver el arreglo transformado//
+
+function rankear(ranking){
+    for (let i = 0; i < ranking.length; i++){
+        ranking[i]= ranking[i] + " " + (i + 1);
+    }
+    return ranking
+};
+
+//Crea un función llamada por2 que reciba un arreglo de números y devuelva un nuevo arreglo con cada número multiplicado por 2//
+
+function por2(numeros){
+    numerosNuevos=[]
+    for(let i=0; i < numeros.length; i++){
+        numerosNuevos.push(numeros [i] * 2) 
+    }
+    return numerosNuevos;
+};
+
+//Crea una función llamada transformarCostos que reciba un arreglo de pesos y el costo por kilogramo y devuelva un arreglo nuevo, sin modificar el anterior con los precios de cada paquete.//
+
+function transformarCostos(pesos, costoPorKg){
+    preciosNuevos=[]
+    for (let i=0; i < pesos.length; i++){
+        preciosNuevos.push(parseFloat(pesos[i])* costoPorKg)
+    }
+    return preciosNuevos
+};
+
+//Crea una función llamada filtrarMayoresA que reciba un arreglo de números y un número y que retorne un nuevo arreglo con los números mayores al número recibido.//
+
+function filtrarMayoresA(numeros, n){
+    numerosNuevos= [];
+    for(let i=0; i < numeros.length; i++){
+        if (n < numeros[i]){
+            numerosNuevos.push(numeros[i])
+
+        }        
+    }
+    return numerosNuevos
+
+};
+
+//Se tiene un arreglo con datos que deberían tener 8 bits, es decir, 8 caracteres en donde cada caracter puede ser 0 o 1. Ejemplo: datos = ["00010000", "00000001", "00000000", "00000010", "00000000", "00000001", "00000000", "00000010"] Crea una función que se llame filtrarDatosErrados que reciba el arreglo de datos y retorne un nuevo arreglo únicamente con las cadenas que tienen 8 caracteres.//
+
+function filtrarDatosErrados(datos){
+    datosFiltrados = [];
+    for(let i=0; i < datos.length; i++){
+        if (datos[i].length === 8 && /^[01]+$/.test(datos[i])){
+            datosFiltrados.push(datos[i])
+        }
+    }
+    return datosFiltrados
+};
+
+//IMPORTANTE SOBRE ESTE EJERCICIO: Condición de filtrado: datos[i].length === 8: Verifica si la cadena tiene exactamente 8 caracteres. /^[01]+$/.test(datos[i]): Utiliza una expresión regular para verificar que la cadena solo contiene los caracteres '0' o '1'.//
+
+
+//Por fallas en el disco duro, algunos datos del sistema se corrompieron y por algún motivo ahora pueden empezar con 2. Modifica la función anterior llamada filtrarDatosErrados para que pueda filtrar los datos que empiecen con 2 o que tengan una mayor cantidad de caracteres que 8. La función debe retornar un arreglo que contenga únicamente los datos que no estén errados.//
+
+function filtrarDatosErrados(datos){
+    datosFiltrados = [];
+    for(let i=0; i < datos.length; i++){
+        if (datos[i].length === 8 && /^[01]+$/.test(datos[i])&& datos[i].charAt(0) !== '2'){
+            datosFiltrados.push(datos[i])
+        }
+    }
+    return datosFiltrados
+};
+
+//IMPORTANTE SOBRE ESTE EJERCICIO: Comprobación de que no comienza con '2': datos[i].charAt(0) !== '2' verifica que la cadena no comienza con '2'.
+
+//Crea una función llamada seleccionarUltimos que reciba un arreglo y un número y retorne un nuevo arreglo con los últimos elementos del arreglo original.//
+
+function seleccionarUltimos(arreglo, num){
+    numNuevo= [];
+    for(let i=0; i < arreglo.length; i++){
+        
+    }
+}
