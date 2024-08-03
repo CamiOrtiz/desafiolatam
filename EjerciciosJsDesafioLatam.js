@@ -796,8 +796,46 @@ function seleccionarUltimosNumeros(arreglo, num){
 
 };
 
+//Crea una función llamada FiltroEspecial que reciba un arreglo de números y retorne un nuevo arreglo con los números que sean mayores a 5 y que estén en una posición par.//
 
+function FiltroEspecial(arreglo){
+    nuevoArreglo=[]
+    for(let i = 0; i < arreglo.length; i++){
+        if(arreglo[i] > 5 && i % 2 === 0 ){
+            nuevoArreglo.push(arreglo[i])
+        }
+    }
+    return nuevoArreglo
+};
 
+//Crea la función transformar que reciba un arreglo con los precios de productos. Esta función debe agregar un 20% a cada producto y luego devolver los productos que tengan un precio superior a 1000.//
+
+function transformar(productos){
+    precios=[]
+    for(i = 0; i < productos.length; i++){
+        valorTransformado = productos[i] + 0,20
+        if(valorTransformado > 1000){
+            precios.push(valorTransformado)
+        }
+       
+    }
+    return precios;
+
+}//REVISAR CON LOS ENCARGADOS, PISTAS DEL EJERCICIO NO CORRESPONDEN
+
+//Crea la función seleccionarTemperaturasExtremas que reciba una lista de temperaturas en Kelvin. La función debe convertir cada temperatura a grados Celsius y luego devolver solo aquellas temperaturas que, una vez convertidas, sean inferiores a -10°C o superiores a 40°C./Tip: para transformar de Kelvin a Celsius debes restar 273 a la temperatura en Kelvin (este número está redondeado para facilitar el ejercicio)
+
+function seleccionarTemperaturasExtremas(temperaturas){
+    extremas=[]
+    for (i = 0; i < temperaturas.length; i++){
+        celsius = temperaturas[i] - 273
+        if (celsius < -10 || celsius > 40){
+            extremas.push(celsius)
+        }
+    }
+    return extremas
+
+};
 
 
 
