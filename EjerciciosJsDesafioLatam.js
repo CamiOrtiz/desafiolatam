@@ -810,19 +810,17 @@ function FiltroEspecial(arreglo){
 
 //Crea la función transformar que reciba un arreglo con los precios de productos. Esta función debe agregar un 20% a cada producto y luego devolver los productos que tengan un precio superior a 1000.//
 
-function transformar(productos){
-    precios=[]
-    for(i = 0; i < productos.length; i++){
-        valorTransformado = productos[i] + 0,20
-        if(valorTransformado > 1000){
-            precios.push(valorTransformado)
-        }
-       
+function transformar(productos) {
+    precios = []
+    for (i = 0; i < productos.length; i++) {
+      valorTransformado = productos[i] * 1.20
+      if (valorTransformado > 1000) {
+        precios.push(valorTransformado)
+      }
     }
-    return precios;
-
-}//REVISAR CON LOS ENCARGADOS, PISTAS DEL EJERCICIO NO CORRESPONDEN
-
+    return precios
+  };  
+  
 //Crea la función seleccionarTemperaturasExtremas que reciba una lista de temperaturas en Kelvin. La función debe convertir cada temperatura a grados Celsius y luego devolver solo aquellas temperaturas que, una vez convertidas, sean inferiores a -10°C o superiores a 40°C./Tip: para transformar de Kelvin a Celsius debes restar 273 a la temperatura en Kelvin (este número está redondeado para facilitar el ejercicio)
 
 function seleccionarTemperaturasExtremas(temperaturas){
@@ -837,6 +835,46 @@ function seleccionarTemperaturasExtremas(temperaturas){
 
 };
 
+//Crea la función transformarYreducir que reciba un arreglo con los precios de productos. Esta función debe agregar un 20% a cada producto y luego devolver el total de los precios de los productos con el 20% de aumento.//
+
+function transformarYreducir(productos){
+    nuevoPrecio = 0
+    for(i= 0; i < productos.length; i++){
+        valorTransformado = productos[i] * 1.20
+        nuevoPrecio += valorTransformado
+
+    }
+    return nuevoPrecio
+
+}
+
+//Crea la función seleccionarTemperaturasExtremas que reciba una lista de temperaturas en Kelvin. La función debe convertir cada temperatura a grados Celsius y luego retornar la suma ellas./
+
+function seleccionarTemperaturasExtremas(temperaturas){
+    extremas=0
+    for (i = 0; i < temperaturas.length; i++){
+        celsius = temperaturas[i] - 273
+        extremas.push(celsius)
+        
+    }
+    return extremas
+
+};
+
+//Se tiene un arreglo con las ventas de un negocio, en donde cada venta es un objeto con la siguiente forma: a = [50, 100, 25, 30, 10, 15, 80, 5, 20, 10] - Cada objeto representa una venta en el día, donde el valor es el monto de la venta. Crea una función llamada SumaVentasMayoresA que reciba un arreglo de ventas y un número, y retorne la suma de las ventas que sean mayores a ese número.//
+
+function SumaVentasMayoresA(ventas, n){
+    mayores=0
+    for(i=0; i < ventas.length; i++){       
+        
+        if(ventas[i] > n){
+            mayores += ventas[i]           
+        }
+
+    }
+    return mayores
+
+};
 
 
 
