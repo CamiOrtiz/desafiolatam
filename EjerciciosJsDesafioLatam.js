@@ -876,6 +876,93 @@ function SumaVentasMayoresA(ventas, n){
 
 };
 
+//Crea una función llamada patronPiramide que reciba un número n como parámetro y muestre en la consola un patrón de asteríscos creciente. El patrón debe tener n filas, y cada fila debe tener tantas estrellas como su número de fila.La función no debe retornar valor alguno, utiliza console.log() para mostrar el patrón.
+
+function patronPiramide(numero){
+    filas= numero
+    for(fila_actual = 1; fila_actual <=  filas; fila_actual++){
+        string= '';
+        for(columnas=1; columnas <= fila_actual; columnas++){
+            string= string + '*';
+        }    
+        console.log(string);
+    }   
+
+};
+
+//Crea una función llamada cuadradoRelleno que reciba un número n como parámetro y muestre en la consola un cuadrado relleno de asteriscos de lado n.
+
+function cuadradoRelleno(numero){
+    filas= numero
+    columnas=numero
+    for(fila_actual = 1; fila_actual <=  filas; fila_actual++){
+        string= '';
+        for(columna_actual=1; columna_actual <= columnas; columna_actual++){
+            string= string + '*';
+        }    
+        console.log(string);
+    }   
+}; 
+//En este código: columnas se ha definido como igual a numero, que es el mismo valor que usas para las filas. Esto asegurará que cada fila tenga la misma cantidad de columnas.En el ciclo interno, se utiliza la variable columna_actual para iterar y construir la cadena de asteriscos. Al final de cada iteración del ciclo externo, se imprime la línea completa de asteriscos, que es lo que necesitas para formar un cuadrado.
+
+
+//Crea una función llamada lineasAlternadas que reciba dos números filas y columnas como parámetros y muestre en la consola un patrón de líneas alternadas de asteriscos.
+
+function lineasAlternadas(filas, columnas){
+
+    for(fila_actual = 1; fila_actual <=  filas; fila_actual++){
+        string= ''
+        if(fila_actual % 2 !==0){
+            for(columna_actual=1; columna_actual <= columnas; columna_actual++){ 
+                string = string + '*';                       
+           
+            }
+
+        }
+        console.log(string);      
+            
+      }   
+}; 
+
+//Crea una función llamada lineasVerticalesAlternadas que reciba dos números filas y columnas como parámetros y muestre en la consola un patrón de líneas verticales alternadas con asteriscos y espacios.
+
+function lineasVerticalesAlternadas(filas, columnas){
+
+    for(columna_actual = 1; columna_actual <=  columnas; columna_actual++){
+        string= ''
+        if(columna_actual % 2 !==0){
+            for(fila_actual=1; fila_actual <= filas; fila_actual++){ 
+                string = string + '*';                       
+           
+            }
+
+        }
+        console.log(string);      
+            
+      }   
+}; 
+
+//Crea una función llamada cuadradoHueco que reciba un número n como parámetro y muestre en la consola un cuadrado hueco de asteriscos de lado n.
+
+function cuadradoHueco(){
+    
+}
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
 
 
 
