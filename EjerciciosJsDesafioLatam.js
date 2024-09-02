@@ -944,11 +944,60 @@ function lineasVerticalesAlternadas(filas, columnas){
 
 //Crea una función llamada cuadradoHueco que reciba un número n como parámetro y muestre en la consola un cuadrado hueco de asteriscos de lado n.
 
-function cuadradoHueco(){
-    
+function cuadradoHueco(numero){
+    filas= numero
+    columnas=numero
+    for(fila_actual = 1; fila_actual <=  filas; fila_actual++){
+        string= '';
+        for(columna_actual=1; columna_actual <= columnas; columna_actual++){
+            if(fila_actual ===1 || fila_actual === filas || columna_actual === 1 || columna_actual === columnas){
+                string= string + '*';
+            } else {
+                string += '';
+            }
+            
+        }    
+        console.log(string);
+    }   
+}; 
+
+
+//Cambios realizados:Definición del parámetro: La función ahora recibe un argumento llamado numero, que se utiliza como tamaño del cuadrado.Inicialización de la cadena: La variable string se inicializa como una cadena vacía en cada iteración del ciclo exterior (para cada fila).Condición para el borde: Se agregó una condición if para decidir si añadir un asterisco o un espacio, dependiendo de si estamos en el borde o en el interior del cuadrado.Tambien puede ser de la siguiente manera:
+
+lado = 4;
+fila = 1;
+while (fila <= lado) {
+    columna = 1;
+    linea = '';
+    while (columna <= lado) {
+        if (fila == 1 || fila == lado || columna == 1 || columna == lado) {
+            linea += "*";
+        } else {
+            linea += " ";
+        }
+        columna++;
+    }
+    console.log(linea);
+    fila++;
 }
+//***********//
+//Crea una función llamada diagonal_cuadrado que reciba un número n como parámetro y muestre en la consola la diagonal de un cuadrado de lado n
 
 
+function diagonal_cuadrado(numero){
+    
+    for(fila_actual = 0; fila_actual < numero; fila_actual++){
+        string= '';
+        for(espacio =0; espacio <= fila_actual; espacio++){
+
+        string = string + '';                       
+   
+    }
+     string += '*'
+     console.log(string);  
+    }     
+    
+} ;
 
 
     
