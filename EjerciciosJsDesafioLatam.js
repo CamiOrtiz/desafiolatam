@@ -999,6 +999,118 @@ function diagonal_cuadrado(numero){
     
 } ;
 
+//Crea una función llamada media_piramide_izquierda que reciba un número altura como parámetro y muestre en la consola la parte izquierda de una pirámide con esa altura.
+
+function media_piramide_izquierda(altura){
+    
+    for(fila_actual = 0; fila_actual <  altura; fila_actual++){
+        string= '';
+        for(espacios = 0; espacios < (altura -fila_actual -1); espacios++){
+            string+= ''
+        }
+        for(columnas=0; columnas <= fila_actual; columnas++){
+            string= string + '*';
+        }    
+        console.log(string);
+    }   
+
+};
+
+//Crea una función llamada presentarObjeto que retorne un objeto con las siguientes claves y valores: "nombre": "Juan", "edad": 25
+
+function presentarObjeto (nombre = "Juan", edad = 25){
+    return {nombre, edad }
+
+};
+
+//Crea una función llamada retornarValor que reciba como argumento un objeto y un string clave y retorne el valor asociado a la clave en el objeto estudiante. En caso de que la clave no exista, la función debe retornar "Desconocido".
+
+function retornarValor(objeto, clave){
+    let valor = objeto[clave];
+    if(clave in objeto){
+        return valor;
+    }else{
+        return "Desconocido"
+    }   
+
+};
+
+//Crea una función llamada cambiarValor que reciba como argumento un objeto, una clave y un valor. Cambia el valor asociado a la clave en el objeto y luego retorna el objeto modificado.
+
+function cambiarValor(objeto, clave, valor){
+    objeto [clave] = valor;
+    
+    return objeto
+};
+
+//Crea una función llamada agregarCuenta que reciba un array con números enteros y devuelva un objeto con la clave cuenta y el valor de la suma de los números del array. Si el array está vacío, la función debe devolver un objeto con la clave cuenta y el valor 0.
+
+function agregarCuenta(num){
+    if(num.length === 0){
+        return {cuenta : 0}
+    }
+    suma=0
+    for(i = 0; i < num.length; i++){
+        numero=num[i];
+        suma += numero
+    }
+
+    return {cuenta:suma}
+};
+
+
+//Se está desarrollando un sistema de gestión de inventario para una tienda. Se tiene un objeto que representa el inventario actual de productos y sus cantidades como se muestra a continuación: inventario = { "manzanas": 50,"plátanos": 30, "naranjas": 40,"peras": 25,"uvas": 35}; Tu tarea es crear una función llamada actualizarInventario que realice lo siguiente: Si se le pasa un producto existente y una cantidad se debe editar la cantidad en el inventario. Si la cantidad pasada es 0 se debe eliminar el producto del inventario. La función debe recibir como argumentos un objeto que representa el inventario, un string que representa el producto y un entero que representa la cantidad. La función debe retornar el inventario modificado.
+
+function actualizarInventario(objeto, producto, cantidad){
+    if(cantidad === 0){
+        delete objeto [producto]
+    }else{
+        objeto[producto] = cantidad
+    }
+    return objeto
+
+};
+
+//Podemos obtener todos los valores de un objeto en JavaScript utilizando el método Object.values().
+
+//Crea la función encontrarStock que reciba un objeto con el inventario de una tienda y retorne la cantidad total de productos en stock.
+
+function encontrarStock(objeto){
+    inventario = Object.values(objeto);
+    suma= 0;
+    for(let i = 0; i < inventario.length; i++){
+        numero = inventario[i]
+        suma += numero
+    }
+    
+    return suma    
+
+};
+
+//Podemos obtener todas las claves de un objeto en JavaScript utilizando el método Object.keys().
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 
     
 
