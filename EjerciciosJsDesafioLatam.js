@@ -1089,48 +1089,176 @@ function encontrarStock(objeto){
 
 //Podemos obtener todas las claves de un objeto en JavaScript utilizando el método Object.keys().
 
+//Crea la función contarProductos que reciba un objeto con el inventario de una tienda y retorne la cantidad total de tipos de productos diferentes en el inventario.
+
+function contarProductos(objeto){
+    productos = Object.keys(objeto)
+    return productos.length
+};
+
+//Crea el objeto calculadora con los métodos sumar, restar, multiplicar y dividir. Cada método debe recibir dos parámetros y devolver el resultado de la operación correspondiente:  sumar(a, b): un método que retorna la suma de a y b; restar(a, b): un método que retorna la resta de a menos b; multiplicar(a, b): un método que retorna el producto de a y b; dividir(a, b): un método que retorna el cociente de a dividido por b (si b es distinto de 0)
+
+calculadora = {
+    sumar: function(a, b) {
+        return a + b
+
+    },
+    restar: function(a, b){
+        return a - b
+
+    },
+    multiplicar: function(a, b){
+        return a * b
+
+    },
+    dividir: function(a, b){
+        return a / b
+    }
+
+};
 
 
+//Los métodos pueden acceder a las propiedades del objeto usando this. this se refiere al objeto actual en el que se está ejecutando el método. En JavaScript, podemos usar this dentro de los métodos de un objeto para acceder a las propiedades del mismo objeto. Esto nos permite mostrar los valores actuales y/o modificarlos. 
+
+//Corrige el objeto persona. Particularmente asegúrate de que el método presentarse use this para acceder a las propiedades del objeto:
+let personax = {
+    nombre: "Ana",
+    edad: 30,
+    presentarse: function() {
+        return "Hola, soy " + nombre + " y tengo " + edad + " años.";
+    }
+};
+
+//Corregido:
+let persona = {
+    nombre: "Ana",
+    edad: 30,
+    presentarse: function() {
+        return "Hola, soy " + this.nombre + " y tengo " + this.edad + " años.";
+    }
+};
+
+//Crea el objeto punto con las propiedades x e y, que representan coordenadas en un plano cartesiano. Luego, agrega el método moverA(x, y) que modifica las coordenadas del objeto puntos. Finalmente, agrega el método dondeEstoy() que muestra las coordenadas actuales del objeto en la forma (x, y) ; Para el método moverA(x, y):Debes actualizar las propiedades x e y del objeto punto utilizando los valores que se pasan como argumentos. Recuerda que debes usar this para referenciar esas propiedades. Para el método dondeEstoy():Este método debe devolver una representación de la posición actual del punto. Puedes devolver una cadena que muestre las coordenadas x e y del objeto punto. Nuevamente, utilizarás this para acceder a las propiedades del objeto.
+
+let punto = {
+    x:0,
+    y: 0,
+    moverA(x, y){
+        this.x = x;
+        this.y = y;
+
+    },
+    dondeEstoy: function (){
+        console.log("(" + this.x + ", " + this.y + ")");  
+        
+    }
+};
 
 
+//Crea un objeto literal llamado cuentaBancaria con las siguientes propiedades y métodos:saldo: una propiedad inicializada con el valor 100. obtenerSaldo(): un método que retorna el saldo actual de la cuenta. depositar(cantidad): un método que recibe un argumento cantidad y lo suma al saldo de la cuenta.
+
+cuentaBancaria= {
+    valor: 100,
+    obtenerSaldo(){
+        return this.valor
+    },   
+    depositar(cantidad){
+        this.valor += cantidad
+        
+        return this.valor
+    }
+};
+
+//Corrige el código para que funcione.
+
+function saludar() {
+    var mensaje = "Hola, mundo!";  /* Modifica esta línea */
+}
+
+function otroSaludo() {
+    console.log(mensaje);  // Puede acceder a 'mensaje' porque es global
+}
+
+saludar();
+otroSaludo(); 
+
+//Código corregido:
+function saludar() {
+    mensaje = "Hola, mundo!";  /* Modifica esta línea */
+}
+
+function otroSaludo() {
+    console.log(mensaje);  // Puede acceder a 'mensaje' porque es global
+}
+
+saludar();
+otroSaludo(); 
 
 
+//Modifica el siguiente código para que la función otroSaludo tenga su propia variable local mensaje con el valor "Hola desde otra función". La función saludar debe mantener su variable local original.
 
+function saludar() {
+    var mensaje = "Hola, mundo!";
+    console.log(mensaje);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
+function otroSaludo() {
+   /* Escribe tu código aquí */
     
 
+    
+   /* Fin */
+    console.log(mensaje);
+}
 
+saludar();
+otroSaludo();
 
+//FUNCION CORREGIDA:
 
+function saludar() {
+    var mensaje = "Hola, mundo!";
+    console.log(mensaje);
+}
 
+function otroSaludo() {
+   /* Escribe tu código aquí */
+    var mensaje = "Hola desde otra función";
 
+    
+   /* Fin */
+    console.log(mensaje);
+}
 
+saludar();
+otroSaludo();
 
+//La función setTimeout es una función que ejecuta una función después de un cierto tiempo. En teoría, en el siguiente código se debería mostrar "Tarea 1 ejecutada", "Tarea 2 ejecutada" y "Tarea 3 ejecutada" en ese orden. Sin embargo, debido al uso de var, obtendremos un resultado inesperado. Puesto que la tarea no se está ejecutando y var i se está incrementando en cada iteración, cuando se ejecuta la tarea, i ya tiene el valor de 4. Modifica la función para solucionar esto.Más adelante volveremos a revisar setTimeout, en el ejercicio solo pon foco en el uso de let en lugar de var.
+function programarTareas() {
+    for (var i = 1; i <= 3; i++) { /* Modifica esta línea */
+      setTimeout(function() {
+        console.log("Tarea " + i + " ejecutada");
+      }, i * 100);
+    }
+    return "Todas las tareas han sido programadas";
+  }
+  
+  programarTareas();
+  console.log("Todas las tareas han sido programadas");
 
+  //Codigo corregido:
 
-
-
-
-
-
-
-
-
+  function programarTareas() {
+    for (let i = 1; i <= 3; i++) { /* Modifica esta línea */
+      setTimeout(function() {
+        console.log("Tarea " + i + " ejecutada");
+      }, i * 100);
+    }
+    return "Todas las tareas han sido programadas";
+  }
+  
+  programarTareas();
+  console.log("Todas las tareas han sido programadas");
 
 
 
