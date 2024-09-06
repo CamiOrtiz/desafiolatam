@@ -1260,6 +1260,63 @@ function programarTareas() {
   programarTareas();
   console.log("Todas las tareas han sido programadas");
 
+ //const se utiliza para declarar constantes, es decir, variables cuyo valor no cambiará después de su asignación inicial. Las variables declaradas con const deben ser inicializadas en el momento de la declaración. No se puede reasignar un nuevo valor a una variable const. const tiene alcance de bloque, al igual que let.
+
+ //Corrige el siguiente código para que funcione correctamente. El bucle debe mostrar los números del 0 al 9.
+
+/* Escribe tu código aquí */
+function imprimirNumeros() {
+    for (const i = 0; i < 10; i++) { 
+        console.log(i);
+    }
+}
+
+/* Fin */
+
+imprimirNumeros();
+
+//Código corregido:
+/* Escribe tu código aquí */
+function imprimirNumeros() {
+    for (let i = 0; i < 10; i++) { 
+        console.log(i);
+    }
+}
+
+/* Fin */
+
+imprimirNumeros();
+
+//Un callback es una función que se pasa como argumento a otra función y se ejecuta dentro de esa función. Los callbacks son comunes en JavaScript y se utilizan para manejar eventos, realizar operaciones asincrónicas, y más
+
+//Crea una función llamada aplicarOperacion que tome tres parámetros:Una función que realiza una operación matemática. Dos números sobre los cuales se realizará la operación.
+
+function aplicarOperacion(operacion, a, b) {
+    return operacion(a, b); 
+}
+
+function sumar(a, b){
+    return a + b
+
+}
+function restar(a, b) {
+    return a - b;
+}
+
+function multiplicar(a, b) {
+    return a * b;
+};
+
+//Crea una función anónima y pásala como argumento a setTimeout. La función debe imprimir el mensaje "¡Hola desde el futuro!" después de 1 segundo (1000 milisegundos).
+
+
+
+
+
+
+
+ 
+
 
 
 
