@@ -1309,6 +1309,299 @@ function multiplicar(a, b) {
 
 //Crea una función anónima y pásala como argumento a setTimeout. La función debe imprimir el mensaje "¡Hola desde el futuro!" después de 1 segundo (1000 milisegundos).
 
+setTimeout(function() {
+    console.log("¡Hola desde el futuro!");
+}, 1000);
+
+console.log("Este mensaje aparece primero");
+
+//**Arrow functions son una forma más concisa de escribir funciones en JavaScript:
+// Función tradicional con un parámetro
+function duplicar(numero) {
+    return numero * 2;
+}
+
+// Arrow function con un parámetro (con paréntesis)
+const duplicarArrow1 = (numero) => {
+    return numero * 2;
+};
+
+// Arrow function con un parámetro (sin paréntesis)
+const duplicarArrow2 = numero => {
+    return numero * 2;
+};
+
+// Versión aún más concisa con retorno implícito
+const duplicarArrow3 = numero => numero * 2;
+
+//Crea una función flecha llamada convertirMayusculas que tome un parámetro texto y devuelva el mismo texto en mayúsculas.
+
+const convertirMayusculas =  texto => {
+    return texto.toUpperCase()
+};
+
+//Cuando una arrow function tiene más de un parámetro, los paréntesis alrededor de los parámetros son obligatorios. La sintaxis básica es: (param1, param2, ...) => { cuerpo de la función } - EJEMPLOS:
+
+// Función tradicional con múltiples parámetros
+function sumar(a, b) {
+    return a + b;
+}
+
+// Arrow function equivalente
+const sumarArrow = (a, b) => {
+    return a + b;
+};
+
+// Versión concisa con retorno implícito
+const sumarArrowConcisa = (a, b) => a + b;
+
+// Ejemplo con tres parámetros
+const calcularPromedio = (a, b, c) => (a + b + c) / 3;
+
+// Ejemplo con 2 parámetros y cuerpo de función
+const multiplicar = (a, b) => {
+    return a * b;
+};
+
+//Crea una arrow function llamada concatenarConEspacio que tome tres parámetros texto1, texto2 y texto3, y devuelva estos tres textos concatenados, separados por un espacio.
+
+const concatenarConEspacio = (texto1, texto2, texto3) => {
+    return (texto1 + " " + texto2 + " " + texto3)
+};
+
+//Cuando una función flecha no tiene parámetros, debemos usar paréntesis vacíos (). Veamos algunos ejemplos:
+
+// Función tradicional sin parámetros
+function saludar() {
+    return "Hola!";
+}
+// Arrow function equivalente
+const saludarArrow = () => {
+    return "Hola!";
+};
+
+// Versión concisa con retorno implícito
+const saludarArrowConcisa = () => "Hola!";
+
+// Una versión que muestra en pantalla en lugar de devolver el valor
+const mostrarMensaje = () => console.log("¡Hola desde una arrow function sin parámetros!");
+
+// Una versión que muestra en pantalla y devuelve un valor
+const mostrarYDevolver = () => {
+    console.log("¡Hola desde una arrow function sin parámetros!");
+    return "Hola!";
+};
+
+//Cuando el cuerpo de la función es una sola línea, podemos omitir las llaves {} y el return para hacer la función aún más concisa. Por ejemplo, la función saludarArrowConcisa es una versión más corta de saludarArrow. Cuando realiza más de una tarea, es necesario usar llaves y return, como en la función mostrarYDevolver.
+
+//Crea una función flecha sin parámetros llamada saludoBot que debe hacer lo siguiente: Mostrar en consola el mensaje "Bienvenido, humano".Devolver el string "Beep boop".
+
+const saludoBot = () => {
+    console.log("Bienvenido, humano")
+    return "Beep boop";
+};
+
+
+//La Zona Muerta Temporal (TDZ) es el período entre el inicio de un ámbito y el punto donde se inicializa una variable declarada con let o const. Durante la TDZ, intentar acceder a la variable resultará en un ReferenceError. Las variables declaradas con var no tienen TDZ, se inicializan con undefined. La TDZ ayuda a prevenir errores al acceder a variables antes de su inicialización. 
+
+//Modifica la función a para que no se produzca un error de referencia al acceder a la variable x antes de su inicialización, mostrando undefined en la consola. No cambies el alcance de la variable x:
+
+const a = function() {
+    let x /* Modifica esta línea */
+    console.log(x); 
+    x = 5
+  }
+  
+  a()
+  
+  try {
+    console.log(x)
+  } catch (e) {
+    console.log(e.message)
+
+  }
+
+//EJERCICIO RESUELTO:
+
+
+const a_ = function() {
+    var x /* Modifica esta línea */
+    console.log(x); 
+    x = 5
+  }
+  
+  a()
+  
+  try {
+    console.log(x)
+  } catch (e) {
+    console.log(e.message)
+  };
+
+//Hoisting es el comportamiento de JavaScript de mover las declaraciones al principio de su ámbito (scope). Esto significa que podemos acceder a una variable antes de su declaración, pero no a su inicialización. El hoisting afecta de manera diferente a las variables dependiendo de cómo se declaren:
+
+console.log(x); // undefined
+var x = 5;
+
+console.log(y); // ReferenceError: Cannot access 'y' before initialization
+let y = 10;
+
+console.log(z); // ReferenceError: Cannot access 'z' before initialization
+const z = 15;
+//En el caso de var, la declaración se alza y se inicializa con undefined. Con let y const, la declaración se alza pero no se inicializa, lo que resulta en la TDZ.
+
+
+//Modifica la función demostrarHoisting para que muestre el efecto del hoisting con variables var. La función debe mostrar undefined en la consola al acceder a la variable x antes de su inicialización.
+
+const demostrarHoisting = function() {
+    console.log(x); 
+    x = 5 /* Modifica esta línea */
+  }
+  
+  demostrarHoisting()
+  
+  try {
+    console.log(x)
+  } catch (e) {
+    console.log(e.message)
+  }
+
+  //EJERCICIO RESUELTO:
+
+  const demostrarHoisting1 = function() {
+    console.log(x); 
+    var x = 5 /* Modifica esta línea */
+  }
+  
+  demostrarHoisting()
+  
+  try {
+    console.log(x)
+  } catch (e) {
+    console.log(e.message)
+  };
+
+ 
+//Las listas (arrays) en JavaScript son mutables, lo que significa que pueden ser modificadas después de su creación. Modificar una lista afecta a todas las variables que hacen referencia a esa lista. Asignar la lista con const no impide que la lista sea modificada, solo impide que la variable sea reasignada a otro valor. Operaciones como push(), pop(), shift(), unshift() y la asignación directa a índices modifican la lista original:
+
+// Crear una lista
+let frutas = ['manzana', 'banana', 'cereza'];
+
+// Modificar un elemento existente
+frutas[1] = 'pera';
+console.log(frutas); // ['manzana', 'pera', 'cereza']
+
+// Agregar un elemento al final
+frutas.push('uva');
+console.log(frutas); // ['manzana', 'pera', 'cereza', 'uva']
+
+// Remover el último elemento
+let ultimaFruta = frutas.pop();
+console.log(frutas); // ['manzana', 'pera', 'cereza']
+console.log(ultimaFruta); // 'uva'
+
+// Agregar un elemento al inicio
+frutas.unshift('fresa');
+console.log(frutas); // ['fresa', 'manzana', 'pera', 'cereza']
+  
+//Podemos copiar una lista para evitar que las modificaciones afecten a la lista original. Esto se puede hacer utilizando el operador spread (...) o el método slice()
+//En este caso, copiaLista es una lista independiente de listaOriginal, por lo que las modificaciones en una no afectan a la otra.
+
+const listaOriginal = [1, 2, 3];
+const copiaLista = [...listaOriginal];
+listaOriginal.push(4);
+listaOriginal[0] = 5;
+console.log(listaOriginal); // [5, 2, 3, 4]
+console.log(copiaLista);    // [1, 2, 3]
+
+//Modifica el código para que la función mutarLista no modifique la lista original:
+
+const listaOriginal = [1, 2, 3]; 
+const listaModificada = listaOriginal; /* Modifica esta línea */
+
+const mutarLista = (listaModificada) => {
+    listaModificada[0] = 'Modificado';
+    return listaModificada;
+}
+
+mutarLista(listaModificada);
+console.log(listaOriginal); 
+
+//EJERCICIO MODIFICADO:
+const listaOriginal = [1, 2, 3]; 
+const listaModificada_ = [listaOriginal]; /* Modifica esta línea */
+
+const mutarLista_ = (listaModificada) => {
+    listaModificada[0] = 'Modificado';
+    return listaModificada;
+}
+
+mutarLista(listaModificada);
+console.log(listaOriginal); 
+
+//Los objetos literales al igual que las listas son mutables, lo que significa que pueden ser modificados después de su creación. Modificar un objeto afecta a todas las variables que hacen referencia a ese objeto. Asignar el objeto con const no impide que el objeto sea modificado, solo impide que la variable sea reasignada a otro valor. Las propiedades de un objeto pueden ser añadidas, modificadas o eliminadas después de su creación. EJEMPLOS:
+// Crear un objeto
+
+let persona_ = { nombre: 'Ana', edad: 30 };
+
+// Modificar una propiedad existente
+persona.edad = 31;
+console.log(persona); // { nombre: 'Ana', edad: 31 }
+
+// Añadir una nueva propiedad
+persona.ciudad = 'Madrid';
+console.log(persona); // { nombre: 'Ana', edad: 31, ciudad: 'Madrid' }
+
+// Eliminar una propiedad
+delete persona.ciudad;
+console.log(persona); // { nombre: 'Ana', edad: 31 }
+
+
+//Modifica el código para que la función mutarObjeto no modifique el objeto original.
+
+const objetoOriginal = { x: 1, y: 2 };
+const objetoModificado = objetoOriginal; /* Modifica esta línea */
+
+const mutarObjeto = (objeto) => {
+    objeto.x = 'Modificado';
+    return objeto;
+}
+
+mutarObjeto(objetoModificado);
+console.log(objetoOriginal);
+
+//EJERCICIO CORREGIDO:
+const objetoOriginal_ = { x: 1, y: 2 };
+const objetoModificado_ = {objetoOriginal}; /* Modifica esta línea */
+
+const mutarObjeto_ = (objeto) => {
+    objeto.x = 'Modificado';
+    return objeto;
+}
+
+mutarObjeto(objetoModificado);
+console.log(objetoOriginal);
+
+//La copia superficial (shallow copy) crea un nuevo objeto/array, pero sus propiedades/elementos anidados siguen siendo referencias al original. La copia profunda (deep copy) crea un nuevo objeto/array y copia recursivamente todas las propiedades/elementos anidados. Métodos como Object.assign() y el operador spread (...) realizan copias superficiales. Para realizar copias profundas, se pueden usar métodos como JSON.parse(JSON.stringify()) o bibliotecas especializadas.
+//Nota: JSON.parse(JSON.stringify()) tiene limitaciones, como no poder copiar funciones o Date objects correctamente
+
+//Implementa una función llamada copiarProfundo que realice una copia profunda del objeto obj para evitar que el siguiente código modifique el objeto original. Tu función debe ser capaz de manejar objetos anidados.
+
+const copiarProfundo = (obj) =>{
+    return JSON.parse(JSON.stringify(obj));
+};   
+
+//El método map() crea un nuevo array con los resultados de llamar a una función para cada elemento del array. map() no modifica el array original. La función pasada a map() se ejecuta para cada elemento del array en orden. map() es útil para transformar datos de un formato a otro.
+
+
+
+
+
+
+
+
+
+
 
 
 
