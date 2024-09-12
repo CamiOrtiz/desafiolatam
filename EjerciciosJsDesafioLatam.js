@@ -1591,7 +1591,314 @@ const copiarProfundo = (obj) =>{
     return JSON.parse(JSON.stringify(obj));
 };   
 
-//El método map() crea un nuevo array con los resultados de llamar a una función para cada elemento del array. map() no modifica el array original. La función pasada a map() se ejecuta para cada elemento del array en orden. map() es útil para transformar datos de un formato a otro.
+//El método map() crea un nuevo array con los resultados de llamar a una función para cada elemento del array. map() no modifica el array original. La función pasada a map() se ejecuta para cada elemento del array en orden. map() es útil para transformar datos de un formato a otro. En general para las opciones de map() se suele utilizar la notación de función flecha para simplificar la sintaxis. Ejemplo:
+
+const numeros = [1, 2, 3, 4, 5];
+const duplicados = numeros.map(numero => numero * 2);
+console.log(duplicados); // [2, 4, 6, 8, 10]
+
+//Implementa la función obtenerLongitudes(palabras) utilizando el método map(). Esta función debe recibir un array de palabras y devolver un nuevo array que contenga la longitud de cada una de esas palabras:
+
+const obtenerLongitudes = palabras =>{
+    const longitud = palabras.map(palabras => palabras.length)    
+    return longitud
+};
+
+//Implementa la función elevarAlCuadrado(numeros), la cual toma un array de números y devuelve un nuevo array con cada número elevado al cuadrado.
+
+const elevarAlCuadrado = (numeros) => {
+    const elevados = numeros.map(numeros => numeros ** 2)
+    return elevados
+};
+
+//Implementa la función agregarPrefijo(), la cual toma un array de palabras y un prefijo, y devuelve un nuevo array donde cada palabra tiene el prefijo agregado, separado por un espacio
+
+const agregarPrefijo = (palabras, prefijo) =>{
+    const agregado = palabras.map(palabras => prefijo + " " + palabras)
+    return agregado
+};
+
+//El método map() es muy versátil y puede trabajar con estructuras de datos más complejas, como arrays de arrays.
+
+//Implementa la función contarElementos(matriz), la cual toma un array de arrays (matriz), y devuelve un nuevo array con la cantidad de elementos en cada subarray. El elemento interior siempre será un array, pero puede tener cualquier cantidad de elementos.
+
+const contarElementos = (matriz) => {
+    const cantidad = matriz.map(matriz => matriz.length)
+    return cantidad
+};
+
+//map() es comúnmente usado para extraer datos específicos de objetos o para añadir nuevas propiedades.
+//El método map() es extremadamente útil cuando trabajamos con arrays de objetos, permitiéndonos transformar cada objeto de manera uniforme. Por ejemplo:
+
+const personas = [
+    { nombre: "Ana", edad: 29 },
+    { nombre: "Carlos", edad: 32 },
+    { nombre: "Berta", edad: 25 }
+  ];
+  
+  const nombres = personas.map(persona => persona.nombre);
+  console.log(nombres); // ["Ana", "Carlos", "Berta"]
+
+  //Crea la función obtenerPrecios, la cual debe recibir un array de objetos que representan productos y devolver un nuevo array que contenga únicamente los precios de esos productos.
+
+  const productos = [
+    { nombre: "Laptop", precio: 1000 },
+    { nombre: "Móvil", precio: 500, descuento: 50 },
+    { nombre: "Tablet", precio: 200 }
+  ];
+  const obtenerPrecios = (productos) => {
+    const precios = productos.map(productos => productos.precio);
+    return precios
+  };
+
+
+//El operador spread (...) permite copiar todas las propiedades de un objeto existente a un nuevo objeto. Podemos añadir nuevas propiedades al crear el nuevo objeto dentro de map().Esta técnica es útil para agregar información derivada a objetos sin modificar los originales.  
+//Podemos usar map() junto con el operador spread para crear nuevos objetos que incluyan todas las propiedades de los objetos originales más algunas adicionales. Por ejemplo:
+
+const personas_ = [
+    { nombre: "Ana", edad: 29 },
+    { nombre: "Carlos", edad: 32 },
+    { nombre: "Berta", edad: 25 }
+  ];
+  
+  const personasConSaludo = personas_.map(persona => ({
+    ...persona,
+    saludo: `Hola, soy ${persona.nombre}`
+  }));
+  
+  console.log(personasConSaludo);
+  // [
+  //   { nombre: "Ana", edad: 29, saludo: "Hola, soy Ana" },
+  //   { nombre: "Carlos", edad: 32, saludo: "Hola, soy Carlos" },
+  //   { nombre: "Berta", edad: 25, saludo: "Hola, soy Berta" }
+  // ]
+
+//Crea la función agregarPromedios que tome un array de estudiantes con sus respectivas calificaciones y devuelva un nuevo array con la información de cada estudiante, incluyendo el promedio de sus calificaciones. Nota: Redondea el promedio a dos decimales utilizando el método toFixed(2).
+
+
+const agregarPromedios = (estudiantes) => {
+    const informacion = estudiantes.map(estudiante => {
+        const calificaciones = estudiante.calificaciones; 
+        const promedio = calificaciones.reduce((sum, calificacion) => sum + calificacion, 0) / calificaciones.length;
+        
+        // Redondear a dos decimales
+        const promedioRedondeado = Math.round(promedio * 100) / 100;
+
+        return {
+            ...estudiante, 
+            promedio: promedioRedondeado 
+        };
+    });
+    return informacion;
+};
+
+//Implementa la función calcularEstadoEstudiantes que tome un array de estudiantes con sus respectivas calificaciones y devuelva un nuevo array con la información de cada estudiante, incluyendo el promedio de sus calificaciones y su estado (Aprobado/Reprobado) si su promedio es mayor o igual a 6.  Notas: Un estudiante está aprobado si su promedio es mayor o igual a 6. Redondea el promedio a dos decimales utilizando el método toFixed(2). Usa el operador spread para mantener las propiedades originales del objeto estudiante.
+
+const calcularEstadoEstudiantes = (estudiantes) => {
+    const informacion = estudiantes.map(estudiante => {
+        const calificaciones = estudiante.calificaciones; 
+        const promedio = calificaciones.reduce((sum, calificacion) => sum + calificacion, 0) / calificaciones.length;        
+        const promedioRedondeado = Math.round(promedio * 100) / 100;    
+        const estado = promedioRedondeado >= 6 ? "Aprobado" : "Reprobado" 
+
+        return {
+            ...estudiante, 
+            promedio: promedioRedondeado.toFixed(2), 
+            estado: estado
+        };
+    });
+
+    return informacion;
+};
+
+
+//El método map() puede recibir una función de callback con tres parámetros: elemento, índice y array. El segundo parámetro (índice) puede ser utilizado para transformaciones basadas en la posición del elemento. Combinar el valor del elemento con su índice permite crear transformaciones más complejas.
+//El método map() no solo transforma elementos basándose en su valor, sino que también puede usar el índice del elemento en la transformación. Esto es útil cuando la posición del elemento es relevante para la transformación. Ejemplo:
+
+const numeross = [1, 2, 3, 4, 5];
+
+const resultado = numeross.map((numero, indice) => numero * indice);
+console.log(resultado); // [0, 2, 6, 12, 20]
+
+
+//Implementa una función llamada transformarConIndice que tome un array de números y realice las siguientes transformaciones usando map(): Si el índice es par, multiplica el número por 2./ Si el índice es impar, suma 5 al número. En ambos casos, añade el índice al resultado de la operación anterior.
+
+
+const transformarConIndice = (numeros) =>{
+    const transformaciones = numeros.map((numero, indice) => {
+        if(indice % 2 ===0){
+            return (numero * 2) + indice;
+        }else {
+            return(numero + 5 + indice)
+        }       
+       
+       
+    })
+    return transformaciones   
+};
+
+//El método filter() crea un nuevo array con todos los elementos que pasan la prueba implementada por la función proporcionada. filter() crea una copia superficial del array, no modifica el array original. La función de prueba debe retornar true para mantener el elemento en el array resultante, o false para excluirlo. filter() es útil para seleccionar elementos específicos de un array basados en ciertos criterio.
+//El método filter() es una forma poderosa de crear un nuevo array que contiene solo los elementos que cumplen con cierta condición. Veamos algunos ejemplos:
+
+// Filtrar números pares
+const numerosx = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const pares = numerosx.filter(numero => numero % 2 === 0);
+console.log(pares); // [2, 4, 6, 8, 10]
+
+// Filtrar strings por longitud
+const palabras = ["sol", "luna", "estrella", "cometa", "galaxia"];
+const palabrasLargas = palabras.filter(palabra => palabra.length > 5);
+console.log(palabrasLargas); // ["estrella", "galaxia"]
+
+//En estos ejemplos, filter() crea nuevos arrays basados en las condiciones especificadas en las funciones de flecha.
+
+//Crea la función filtrarPositivos(numeros), la cual toma un array de números y devuelve un nuevo array solo con los números positivos (estrictamente mayores que cero)
+
+const filtrarPositivos = (numeros) => {
+    const positivos = numeros.filter(numero => numero > 0)
+    return positivos
+};
+
+//Podemos combinar múltiples condiciones usando operadores lógicos (&&, ||) dentro de la función de filtrado. Es importante considerar el orden y la prioridad de las condiciones al combinarlas.
+//Podemos usar filter() con múltiples condiciones para crear filtros más específicos. Veamos algunos ejemplos:
+
+// Filtrar números que son pares Y mayores que 5
+const numeros1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const paresMayoresQueCinco = numeros1.filter(numero => numero % 2 === 0 && numero > 5);
+console.log(paresMayoresQueCinco); // [6, 8, 10]
+
+// Filtrar números que son múltiplos de 3 O múltiplos de 5
+const numerosVariados = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 18, 20, 25, 30];
+const multiplosDeTresOCinco = numerosVariados.filter(numero => numero % 3 === 0 || numero % 5 === 0);
+console.log(multiplosDeTresOCinco); // [3, 5, 6, 9, 10, 15, 18, 20, 25, 30]
+//En estos ejemplos, usamos && (AND) y || (OR) para combinar condiciones dentro de la función de filtrado.
+
+//Implementa la función filtrarNumeros(numeros, min, max) utilizando filter() con múltiples condiciones: Toma un array de números y dos valores numéricos (mínimo y máximo). Debe devolver un nuevo array con los números que cumplan AMBAS condiciones: El número es mayor o igual que min. El número es menor o igual que max. Adicionalmente, el número debe ser par.
+
+const filtrarNumeros = (numeros, min, max) => {
+    return numeros.filter(numero => {
+        return numero >= min && numero <= max && numero % 2 === 0;
+    });   
+
+};
+
+//filter() puede trabajar con arrays de objetos, permitiendo filtrar basándose en las propiedades de estos objetos. Podemos acceder y comparar múltiples propiedades de un objeto dentro de la función de filtrado. Cuando trabajamos con arrays de objetos, filter() nos permite crear subconjuntos basados en las propiedades de estos objetos. Por ejemplo:
+
+const productosx = [
+    { nombre: "Laptop", precio: 1200, categoria: "Electrónica" },
+    { nombre: "Libro", precio: 20, categoria: "Libros" },
+    { nombre: "Smartphone", precio: 500, categoria: "Electrónica" },
+    { nombre: "Taza", precio: 5, categoria: "Hogar" }
+  ];
+  
+  // Filtrar productos de electrónica con precio mayor a 100
+  const electronicasCostosas = productosx.filter(producto => 
+    producto.categoria === "Electrónica" && producto.precio > 100
+  );
+  
+  console.log(electronicasCostosas);
+  // [
+  //   { nombre: "Laptop", precio: 1200, categoria: "Electrónica" },
+  //   { nombre: "Smartphone", precio: 500, categoria: "Electrónica" }
+  // ]
+
+//Implementa la función filtrarEstudiantes(estudiantes, edadMinima, promedioMinimo) utilizando filter(): La función toma un array de objetos de estudiantes y dos valores numéricos (edad mínima y promedio mínimo). Cada objeto estudiante tiene las propiedades: nombre, edad, y promedio. Debe devolver un nuevo array con los estudiantes que cumplan AMBAS condiciones: La edad del estudiante es mayor o igual que edadMinima. El promedio del estudiante es mayor o igual que promedioMinimo.
+
+const filtrarEstudiantes = (estudiantes, edadMinima, promedioMinimo) => {
+    return estudiantes.filter((estudiante) => {
+        return estudiante.edad >= edadMinima && estudiante.promedio >= promedioMinimo
+    });
+
+};
+
+//Filtrar por índice o por posición puede ser útil para seleccionar elementos basados en su posición en el array. Este tipo de filtrado puede combinarse con otras condiciones basadas en el valor del elemento.
+//El método filter() permite acceder al índice de cada elemento en la función de callback. Esto nos permite filtrar elementos basados en su índice o posición en el array. Por ejemplo:
+
+const num = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+const primerosCinco = num.filter((value, indice) => indice < 5);
+//Por supuesto el ejercicio anterior se puede hacer con slice() pero nos sirve para ilustrar cómo se puede usar el índice en filter()
+
+//Cuando no se utiliza el valor del elemento en la función de callback, es común utilizar _ como nombre de la variable que lo representa. Esto ayuda a indicar que el valor no es relevante para la operación y no es algo que haya sido olvidado.
+
+// Filtrar elementos en posiciones pares
+const nume = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+const elementosPares = nume.filter((_, indice) => indice % 2 === 0);
+console.log(elementosPares); // [10, 30, 50, 70, 90]
+
+//Podemos utilizar tanto el índice como el valor del elemento en la función de callback. Por ejemplo:
+
+// Filtrar elementos cuyo valor es mayor que su índice
+const valoresMayoresQueIndice = numeros.filter((valor, indice) => valor > indice * 10);
+console.log(valoresMayoresQueIndice); // [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+//Implementa una función llamada filtrarPorPosicion que tome dos parámetros: Un array de números.Un número n que representa cada cuántas posiciones se debe seleccionar un elemento.La función debe usar filter() para seleccionar cada n-ésimo elemento del array, comenzando desde el primer elemento (índice 0). Pistas: Puedes utilizar el índice en la función de callback para seleccionar los elementos correctos. Los elementos en la posición enesima cumplen con (índice % n === 0). Cada 4 posiciones sería (índice % 4 === 0).
+
+const filtrarPorPosicion = (numeros, n) =>{
+    return numeros.filter((numero, indice) => {
+        return indice % n === 0;
+    });
+
+};
+
+//El método sort() ordena los elementos de un array modificando el array original.Por defecto, sort() ordena los elementos como strings en orden ascendente. Para números, el ordenamiento por defecto puede dar resultados inesperados. sort() modifica el array original. Se puede pasar una función de comparación a sort() para definir un orden personalizado.
+
+//El método sort() se puede usar de forma muy simple para ordenar arrays. Sin embargo, es importante entender su comportamiento predeterminado:
+
+// Ordenar strings
+const frutas = ['manzana', 'banana', 'cereza', 'dátil'];
+frutas.sort();
+console.log(frutas); // ['banana', 'cereza', 'dátil', 'manzana']
+
+// Ordenar números (¡cuidado!)
+const numerox = [10, 2, 30, 4, 1];
+numerox.sort();
+console.log(numerox); // [1, 10, 2, 30, 4]
+//Nota que para los números, el resultado puede no ser el esperado porque sort() los trata como strings por defecto.
+//Para ordenar números correctamente, podemos pasar una función de comparación a sort():
+
+const numerosss = [10, 2, 30, 4, 1];
+numerosss.sort((a, b) => a - b);
+console.log(numerosss); // [1, 2, 4, 10, 30]
+//La función de comparación debe retornar: Un número negativo si a debe ir antes que b / Un número positivo si b debe ir antes que a / Cero si son iguales
+  
+//Implementa una función ordenarPalabrasLongitud que ordene un array de palabras de la más corta a la más larga. Si dos palabras tienen la misma longitud deben mantener su orden original.
+
+const ordenarPalabrasLongitud = (palabras) =>{
+    return palabras.sort((a, b) => a.length - b.length);
+};
+
+//El método reduce() ejecuta una función reductora sobre cada elemento de un array, devolviendo como resultado un único valor. reduce() toma una función callback con al menos dos parámetros: el acumulador y el valor actual. Opcionalmente, se puede proporcionar un valor inicial para el acumulador. reduce() es muy versátil y puede usarse para muchas operaciones más allá de la simple suma de números.
+
+//reduce() transforma un arreglo en un solo valor. Para esto itera sobre cada elemento del arreglo y aplica una función reductora que toma dos argumentos: el acumulador y el valor actual. El resultado de la función reductora se convierte en el nuevo valor del acumulador. Un ejemplo común de reduce() es sumar todos los elementos de un array:
+
+const numr = [1, 2, 3, 4, 5];
+const suma = numr.reduce((acumulador, valorActual) => acumulador + valorActual, 0);
+console.log(suma); // 15
+//En este ejemplo: acumulador es la suma acumulada / valorActual es el elemento actual del array / 0 es el valor inicial del acumulador
+
+//Crea una función sumarNumeros(numeros). La función debe tomar un array de números y retornar la suma de todos elemento más el largo del array
+
+const sumarNumeros = (numeros) => {
+    const suma = numeros.reduce((acumulador, valorActual) => acumulador + valorActual, 0)
+    return suma + numeros.length
+}
+
+
+  
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
 
 
 
